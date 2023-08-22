@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingDefaultResource">
+    <base-config cleartextTrafficPermitted="true" />
+</network-security-config>
+<!--
+从Nougat（Android 7）一个名为“Network Security Configuration”的新安全功能也随之而来。如果应用程序的SDK高于或等于24，则只有系统证书才会被信任。
+当SDK>=24时，请在AndroidManifest.xml的<application></application>节点里添加如下配置：
+<application
+        ...
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:requestLegacyExternalStorage="true">
+</application>
+-->
