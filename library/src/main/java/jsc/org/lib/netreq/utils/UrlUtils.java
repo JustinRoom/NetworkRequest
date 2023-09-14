@@ -4,9 +4,16 @@ import okhttp3.HttpUrl;
 
 public final class UrlUtils {
 
-    public static boolean isValidUrl(String originalUrl) {
-        HttpUrl url = HttpUrl.parse(originalUrl);
-        return url != null;
+    public static HttpUrl toHttpUrl(String url) {
+        return HttpUrl.parse(url);
     }
 
+    public static boolean isValidUrl(String url) {
+        return toHttpUrl(url) != null;
+    }
+
+    public static void requireValidUrl(String url) {
+        if (toHttpUrl(url) == null)
+            throw new IllegalArgumentException("Invalid url.");
+    }
 }
