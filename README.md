@@ -1,6 +1,7 @@
-# 网络请求
+# 基于OkHttp网络请求
 
 ### 1、文件下载
+
 ```
     final Handler mHandler = new Handler(Looper.getMainLooper()) {
         @Override
@@ -26,11 +27,11 @@
 ```
 
 #### 1.1、普通下载
+
 ```
     private void download() {
         String url = "http://192.168.0.230/download/.../ceshi.apk";
         File file = new File(getExternalFilesDir("download"), "ceshi.apk");
-        boolean range = binding.cbRange.isChecked();
         Bundle arguments = new Bundle();
         //key:区分线程，便于做线程管理(非必要可不传)
         arguments.putString("key", "mPersonalKey");
@@ -53,11 +54,11 @@
 ```
 
 #### 1.2、断点续传
+
 ```
     private void download() {
         String url = "http://192.168.0.230/download/.../ceshi.apk";
         File file = new File(getExternalFilesDir("download"), "ceshi.apk");
-        boolean range = binding.cbRange.isChecked();
         Bundle arguments = new Bundle();
         //key:区分线程，便于做线程管理(非必要可不传)
         arguments.putString("key", "mPersonalKey");
@@ -82,6 +83,7 @@
 ### 2、网络请求
 
 #### 2.1、初始化
+
 ```
         HttpRequester.getInstance().register(getApplicationContext());
         OkHttpClient.Builder builder = HttpClientUtils.createOkHttpClientBuilder(20L);
@@ -96,6 +98,7 @@
 ```
 
 #### 2.2、请求示例
+
 ```
         //响应返回主线程
         ProgressDialog dialog = new ProgressDialog(this);
@@ -143,6 +146,7 @@
 ```
 
 #### 2.2.1、application/x-www-form-urlencoded POST
+
 ```
         String url = "http://192.168.3.230/identityAuth/token";
         String requestParams = new URLParamsBuilder()
@@ -159,6 +163,7 @@
 ```
 
 #### 2.2.2、application/json POST
+
 ```
         String url = "http://192.168.3.230/identityAuth/token";
         JSONObject obj = new JSONObject();
@@ -178,6 +183,7 @@
 ```
 
 #### 2.2.3、GET
+
 ```
         Request request = new Request.Builder()
                 .url(new URLParamsBuilder()
@@ -193,6 +199,7 @@
 ```
 
 #### 2.2.4、多文件提交multipart POST
+
 ```
         String url = "http://192.168.3.230/identityAuth/token";
         MultipartBody.Builder builder = new MultipartBody.Builder()
@@ -217,6 +224,7 @@
 ```
 
 #### 2.2.5、表单提交form POST
+
 ```
         String url = "http://192.168.3.230/identityAuth/token";
         FormBody.Builder builder = new FormBody.Builder()

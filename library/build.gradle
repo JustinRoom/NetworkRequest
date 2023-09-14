@@ -41,6 +41,10 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-scalars:2.9.0'
 
     //okhttp网络库
-    api 'com.squareup.okhttp3:okhttp:4.9.1'
-    api 'com.squareup.okhttp3:logging-interceptor:4.3.0'
+    //https://github.com/square/okhttp
+    // define a BOM and its version
+    implementation(platform("com.squareup.okhttp3:okhttp-bom:4.11.0"))
+    api 'com.squareup.okhttp3:okhttp'
+    api 'com.squareup.okhttp3:logging-interceptor'
+    api 'com.squareup.okhttp3:mockwebserver'
 }

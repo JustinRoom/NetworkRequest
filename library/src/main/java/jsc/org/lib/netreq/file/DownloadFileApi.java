@@ -47,7 +47,7 @@ public final class DownloadFileApi {
         boolean needCheckMd5 = file.exists() && !TextUtils.isEmpty(md5);
         long range = file.exists() ? file.length() : 0L;
         InputStream is = null;
-        Call<ResponseBody> call = DownloadFileApi.createDownloadFileCall(baseUrl, path, "bytes=" + range + "-", timeout);
+        Call<ResponseBody> call = createDownloadFileCall(baseUrl, path, "bytes=" + range + "-", timeout);
         monitor.onRequestCreated(call);
         try {
             Response<ResponseBody> response = call.execute();
@@ -55,7 +55,7 @@ public final class DownloadFileApi {
             if (response.code() == 416) {
                 boolean dr = file.delete();
                 range = 0L;
-                call = DownloadFileApi.createDownloadFileCall(baseUrl, path, "bytes=" + range + "-", timeout);
+                call = createDownloadFileCall(baseUrl, path, "bytes=" + range + "-", timeout);
                 response = call.execute();
             }
             ResponseBody body = response.body();

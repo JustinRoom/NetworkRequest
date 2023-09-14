@@ -25,6 +25,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".DownloadFileActivity"/>
+        <activity android:name=".WebSocketActivity"/>
     </application>
 
 </manifest>

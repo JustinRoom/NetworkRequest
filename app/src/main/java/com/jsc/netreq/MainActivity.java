@@ -22,7 +22,14 @@ public class MainActivity extends BaseActivity {
                 startActivity(new Intent(v.getContext(), DownloadFileActivity.class));
             }
         });
+        binding.btnTestWebsocket.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(v.getContext(), WebSocketActivity.class));
+            }
+        });
         ViewOutlineUtils.applyEllipticOutline(binding.btnDownloadFile);
+        ViewOutlineUtils.applyEllipticOutline(binding.btnTestWebsocket);
     }
 
     @Override

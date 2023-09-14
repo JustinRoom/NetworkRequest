@@ -45,6 +45,16 @@ public final class HttpClientUtils {
         return builder;
     }
 
+    /**
+     * For WebSocket.
+     * @param builder
+     * @param time
+     * @param unit
+     */
+    public static void addPingInterval(OkHttpClient.Builder builder, long time, TimeUnit unit) {
+        builder.pingInterval(time, unit);
+    }
+
     public static void addHttpLoggingInterceptor(OkHttpClient.Builder builder) {
         HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
         httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);

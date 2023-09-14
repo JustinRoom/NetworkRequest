@@ -61,6 +61,14 @@ public final class HttpRequester {
         call.enqueue(callback);
     }
 
+    public static <C extends NetCallback> void request(@NonNull OkHttpClient mClient, @NonNull Request request, @NonNull C callback) {
+        Call call = mClient.newCall(request);
+        callback.bindCall(call);
+        callback.onStart(callback.getArguments());
+        //enqueue()方法内部本身就是用ThreadPool来维护的，所以本地不需要再创建一个线程池。
+        call.enqueue(callback);
+    }
+
     public void addCall(Call call) {
         synchronized (lock) {
             calls.add(call);
