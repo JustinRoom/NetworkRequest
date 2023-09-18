@@ -28,8 +28,15 @@ public class MainActivity extends BaseActivity {
                 startActivity(new Intent(v.getContext(), WebSocketActivity.class));
             }
         });
+        binding.btnTestLogger.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(v.getContext(), LoggerTestActivity.class));
+            }
+        });
         ViewOutlineUtils.applyEllipticOutline(binding.btnDownloadFile);
         ViewOutlineUtils.applyEllipticOutline(binding.btnTestWebsocket);
+        ViewOutlineUtils.applyEllipticOutline(binding.btnTestLogger);
     }
 
     @Override

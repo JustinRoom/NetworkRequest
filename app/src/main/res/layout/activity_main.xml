@@ -34,4 +34,18 @@
         android:textColor="#fff"
         app:layout_constraintTop_toBottomOf="@id/btn_download_file" />
 
+    <TextView
+        android:id="@+id/btn_test_logger"
+        style="@style/TextAppearance.AppCompat.Subhead"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/item_background_ripple_001"
+        android:gravity="center_horizontal"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
+        android:text="LoggerImpl"
+        android:textColor="#fff"
+        app:layout_constraintTop_toBottomOf="@id/btn_test_websocket" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

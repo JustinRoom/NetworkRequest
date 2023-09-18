@@ -42,7 +42,7 @@ public abstract class NetCallback implements Callback {
     }
 
     public boolean cancel() {
-        if (!responded) {
+        if (!responded && !isCanceled()) {
             canceled = true;
             call.cancel();
             HttpRequester.getInstance().removeCall(call);
@@ -57,14 +57,16 @@ public abstract class NetCallback implements Callback {
 
     @Override
     public void onFailure(@NonNull Call call, @NonNull IOException e) {
+        if (isCanceled()) return;
         responded = true;
         HttpRequester.getInstance().removeCall(call);
-        log(call.request().url().toString(), 0x999, "请求失败", e.getLocalizedMessage());
-        callback(getArguments(), 0x999, "请求失败", e.getLocalizedMessage());
+        log(call.request().url().toString(), 0x999, "请求失败", e.toString());
+        callback(getArguments(), 0x999, "请求失败", e.toString());
     }
 
     @Override
     public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+        if (isCanceled()) return;
         responded = true;
         HttpRequester.getInstance().removeCall(call);
         if (!dealOriginalResponse(getArguments(), response)) {

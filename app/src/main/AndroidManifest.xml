@@ -5,6 +5,7 @@
 
     <application
         android:allowBackup="true"
+        android:name=".MainApp"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
@@ -26,6 +27,7 @@
         </activity>
         <activity android:name=".DownloadFileActivity"/>
         <activity android:name=".WebSocketActivity"/>
+        <activity android:name=".LoggerTestActivity"/>
     </application>
 
 </manifest>
