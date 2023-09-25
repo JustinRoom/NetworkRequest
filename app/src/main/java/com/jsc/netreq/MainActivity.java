@@ -31,7 +31,7 @@ public class MainActivity extends BaseActivity {
         binding.btnTestLogger.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(v.getContext(), LoggerTestActivity.class));
+
             }
         });
         ViewOutlineUtils.applyEllipticOutline(binding.btnDownloadFile);

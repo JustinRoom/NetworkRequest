@@ -27,7 +27,6 @@
         </activity>
         <activity android:name=".DownloadFileActivity"/>
         <activity android:name=".WebSocketActivity"/>
-        <activity android:name=".LoggerTestActivity"/>
     </application>
 
 </manifest>
