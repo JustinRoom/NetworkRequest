@@ -111,7 +111,4 @@ public class DownloadFileActivity extends BaseActivity {
         }
     }
 
-    void sadf(){
-
-    }
 }
